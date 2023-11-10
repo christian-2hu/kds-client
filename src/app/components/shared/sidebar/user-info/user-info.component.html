@@ -1,0 +1,22 @@
+<div class="sideBarUst text-center pt-3">
+  <div class="userInfo mt-3">
+    <div
+      class="userFoto mb-2"
+      [ngClass]="escondeSidebar ? 'esconderUserFoto' : 'mostrarUserFoto'"
+    >
+      <!-- PH -->
+      <img class="rounded-circle" src="assets/img/default-profile.jpg" />
+    </div>
+    <div
+      class="userName"
+      [ngClass]="escondeSidebarTexto ? 'esconderUsername' : 'mostrarUsername'"
+    >
+      <span class="d-flex justify-content-center animated fadeInDown"
+        >Name Example</span
+      >
+      <small class="d-flex justify-content-center animated fadeInDown subText"
+        >Function Example</small
+      >
+    </div>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<div>
+  <section class="grid grid-template-columns-esconder-sidebar grid-areas">
+    <div class="item nav mb-2">
+      <div class="nav-bar">
+        <div class="navbar-items">
+          <div class="navbar mx-3">
+            <div (click)="showSidebar()" class="btn btn-primary sidebar-btn">
+              <fa-icon [icon]="barsIcon"></fa-icon>
+            </div>
+            <input
+              type="hidden"
+              [routerLink]="'orders'"
+              routerLinkActive
+              #orders="routerLinkActive"
+            />
+            <div class="order-info" *ngIf="orders.isActive">
+              <app-order-info></app-order-info>
+            </div>
+          </div>
+          <p-progressBar
+            *ngIf="loading"
+            mode="indeterminate"
+            [style]="{ height: '2px' }"
+          ></p-progressBar>
+        </div>
+      </div>
+    </div>
+    <div class="item content"><router-outlet></router-outlet></div>
+    <div class="item sidenav">
+      <app-sidebar
+        [sidebarOpenClosedInput]="true"
+        [sideBarMenuItem]="sidebarMenuitems"
+      ></app-sidebar>
+    </div>
+  </section>
+</div>

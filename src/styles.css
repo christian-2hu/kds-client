@@ -1,0 +1,54 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+
+:root {
+  --preparando-color: #1b4478;
+  --preparando-color-hover: #2960a8;
+  --aguardando-color: #7d2020;
+  --pronto-color: #3e9e49;
+  --pronto-color-hover: #49bb57;
+  --cancelado-color: #878787;
+  --cancelado-color-hover: #6c6c6c;
+  --cancelado-color-active: #9e9d9d;
+  --confirmar-color: #c93434;
+  --confirmar-color-hover: #b12e2e;
+  --sidebar-bg: #2f4050;
+  --sidebar-item-hover-bg: #293846;
+  --menu-item-color: #a7b1c2;
+  --menu-item-color-hover: #ffffff;
+  --menu-item-active: var(--menu-item-color-hover);
+  --hidden-sidebar-width: 70px;
+  --displayed-sidebar-width: 210px;
+  --sidebar-transition: 0.4s;
+}
+
+body {
+  font-size: 16px;
+  background-color: #dddddd;
+}
+
+.confirmado .color,
+.confirmado-color {
+  background-color: var(--confirmar-color) !important;
+}
+
+.preparando .color,
+.preparando-color {
+  background-color: var(--preparando-color) !important;
+}
+
+.aguardando .color,
+.aguardando-color {
+  background-color: var(--aguardando-color) !important;
+}
+
+.pronto .color,
+.pronto-color {
+  background-color: var(--pronto-color) !important;
+}
+
+.cancelado .color,
+.cancelado-color {
+  background-color: var(--cancelado-color) !important;
+}

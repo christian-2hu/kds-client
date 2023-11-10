@@ -1,0 +1,51 @@
+.default-btn {
+  background-color: #bb2626;
+  color: #fff;
+  font-weight: bold;
+}
+.default-btn:hover {
+  background-color: #9c2121;
+}
+
+.default-btn:active {
+  background-color: #da2d2d;
+  color: #fff;
+  border-color: #da2d2d;
+}
+
+:host-context(.cancel-btn) button {
+  background-color: var(--cancelado-color);
+  border-color: var(--cancelado-color);
+}
+
+:host-context(.cancel-btn) button:hover {
+  background-color: var(--cancelado-color-hover);
+}
+
+:host-context(.cancel-btn) button:active {
+  background-color: var(--cancelado-color-hover);
+}
+
+:host-context(.preparar-btn) button {
+  background-color: var(--preparando-color);
+}
+
+:host-context(.preparar-btn) button:hover {
+  background-color: var(--preparando-color-hover);
+}
+
+:host-context(.finalizar-btn) button {
+  background-color: var(--pronto-color);
+}
+
+:host-context(.finalizar-btn) button:hover {
+  background-color: var(--pronto-color-hover);
+}
+
+:host-context(.confirmar-btn) button:hover {
+  background-color: var(--confirmar-color-hover);
+}
+
+:host-context(.confirmar-btn) button {
+  background-color: var(--confirmar-color);
+}

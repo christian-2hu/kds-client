@@ -1,0 +1,42 @@
+/*TODO: SHARE THIS BETWEEN SIDEBAR.CSS AND USER-INFO.CSS*/
+
+.userInfo {
+  padding-top: 33px;
+  padding-bottom: 33px;
+}
+
+.userFoto {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: #088afe;
+  background-color: #fff;
+  line-height: normal;
+}
+
+.mostrarUserFoto {
+  /* width: 60px;
+    height: 60px; */
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+.esconderUserFoto {
+  /* width: 40px;
+    height: 40px; */
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+.mostrarUsername {
+  display: block;
+}
+
+.esconderUsername {
+  display: none;
+}
+
+.subText {
+  color: #8095a8 !important;
+}

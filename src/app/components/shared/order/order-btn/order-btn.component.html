@@ -1,0 +1,31 @@
+<div
+  *ngIf="showCancelBtn; then cancelBtnTemplate; else dynamicBtnTemplate"
+></div>
+<ng-template #cancelBtnTemplate>
+  <app-button
+    (onClick)="changeOrderStatusTo(getOrderStatus.CANCELED)"
+    class="cancel-btn"
+    btnText="Cancelar"
+    [isBtnDisabled]="
+      orderStatus == getOrderStatus.COMPLETE ||
+      orderStatus == getOrderStatus.CANCELED
+    "
+  ></app-button
+></ng-template>
+<ng-template #dynamicBtnTemplate>
+  <app-button
+    (onClick)="changeOrderStatus()"
+    [ngClass]="{
+          'confirmar-btn': orderStatus == getOrderStatus.WAITING, 
+          'preparar-btn': orderStatus == getOrderStatus.CONFIRMED,
+          'finalizar-btn':
+            orderStatus == getOrderStatus.PREPARING ||
+            orderStatus == getOrderStatus.COMPLETE || getOrderStatus.CANCELED,
+        }"
+    [btnText]="getButtonName"
+    [isBtnDisabled]="
+      orderStatus == getOrderStatus.COMPLETE ||
+      orderStatus == getOrderStatus.CANCELED
+    "
+  ></app-button>
+</ng-template>

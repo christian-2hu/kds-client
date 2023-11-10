@@ -1,0 +1,17 @@
+.info {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+}
+
+.info-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.color {
+  height: 100%;
+  width: 23px;
+  background-color: none;
+  border-radius: 55%;
+}

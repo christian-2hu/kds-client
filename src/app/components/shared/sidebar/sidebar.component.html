@@ -1,0 +1,66 @@
+<div
+  class="sidebarMenu"
+  [ngClass]="hideSidebar ? 'escondeSidebar' : 'mostraSideBar'"
+>
+  <app-user-info
+    [escondeSidebar]="hideSidebar"
+    [escondeSidebarTexto]="hideSidebarText"
+  ></app-user-info>
+  <div class="menu">
+    <div class="sideBarOrta">
+      <ul class="nav flex-column overflow">
+        <li
+          *ngFor="let item of sideBarMenuItem; index as i"
+          class="nav-item"
+          (click)="item.items != undefined && hideList()"
+        >
+          <a
+            class="nav-link"
+            routerLink="{{
+              item.routerUrl != undefined ? item.routerUrl : '#'
+            }}"
+            routerLinkActive="active"
+          >
+            <!-- <a class="nav-link active" href="#"> -->
+            <span class="navIcon">
+              <fa-icon [icon]="item.fontAwesomeIcon!"></fa-icon>
+            </span>
+            <span
+              [ngClass]="
+                hideSidebarText
+                  ? 'esconderNavlink'
+                  : 'mostrarNavlink animated fadeInRight'
+              "
+              >{{ item.label }}</span
+            >
+            <ng-template [ngIf]="item.items != undefined"
+              ><div
+                *ngIf="hideIcon; then hideIconTemplate; else showIconTemplate"
+              ></div>
+              <ng-template #hideIconTemplate>
+                <span class="showHideIcons"
+                  ><fa-icon [icon]="arrowRightIcon"></fa-icon></span
+              ></ng-template>
+              <ng-template #showIconTemplate>
+                <span class="showHideIcons">
+                  <fa-icon [icon]="arrowDownIcon"></fa-icon>
+                </span>
+              </ng-template>
+              <ul
+                class="menu"
+                [ngClass]="hideSidebarText ? 'esconderLista' : ''"
+                [@trigger]="state"
+              >
+                <li *ngFor="let subMenuitem of item.items" class="menu-item">
+                  <span routerLink="{{ subMenuitem.routerUrl }}">{{
+                    subMenuitem.label
+                  }}</span>
+                </li>
+              </ul></ng-template
+            >
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

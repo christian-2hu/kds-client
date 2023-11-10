@@ -1,0 +1,145 @@
+.menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-item {
+  color: var(--menu-item-color);
+  padding: 7px 10px 7px 10px;
+  align-content: center;
+}
+
+.overflow {
+  overflow: hidden;
+}
+
+.esconderMenuItem {
+  display: none;
+}
+
+.mostrarMenuItem {
+  display: block;
+}
+
+.centerIcon {
+  align-content: center;
+}
+
+.menu-item:hover {
+  color: var(--menu-item-color-hover);
+}
+
+.menu-item-active {
+  color: var(--menu-item-active);
+}
+
+.active {
+  border-left: 4px solid #19aa8d;
+  background: #293846;
+}
+
+ul {
+  list-style: none;
+}
+
+.sidebarMenu {
+  background-color: var(--sidebar-bg);
+  color: #fff;
+  width: auto;
+  height: 80vw;
+}
+
+.mostraSideBar {
+  width: var(--displayed-sidebar-width);
+  transition: var(--sidebar-transition);
+}
+.escondeSidebar {
+  width: var(--hidden-sidebar-width);
+  transition: var(--sidebar-transition);
+}
+
+.userFoto {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: #088afe;
+  background-color: #fff;
+  line-height: normal;
+}
+
+.userInfo {
+  padding-top: 33px;
+  padding-bottom: 33px;
+}
+.nav li a {
+  color: #fff !important;
+  font-size: 14px;
+}
+
+.nav li a:hover {
+  background-color: var(--sidebar-item-hover-bg);
+}
+
+.navIcon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 26px;
+  height: 26px;
+  font-weight: bold;
+  color: #fff;
+  border-radius: 4px;
+}
+
+.mostrarUserFoto {
+  width: 60px;
+  height: 60px;
+  border-radius: 38px;
+  font-size: 20px;
+  transition: 0.4s;
+}
+.esconderUserFoto {
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  font-size: 16px;
+  transition: 0.4s;
+}
+
+.mostrarUsername {
+  display: block;
+}
+.esconderUsername {
+  display: none;
+}
+
+.showHideIcons {
+  float: right;
+  line-height: 1.9;
+}
+
+.mostrarNavlink {
+  display: inline-block;
+  visibility: visible;
+}
+.esconderNavlink {
+  display: none;
+  visibility: hidden;
+}
+
+.esconderLista {
+  display: none;
+  visibility: hidden;
+}
+
+.genisSideBarAlt {
+  width: 160px;
+}
+.darSideBarAlt {
+  width: 60px;
+}
+
+.nav-link {
+  cursor: pointer;
+}

@@ -1,0 +1,97 @@
+<div class="orders-body">
+  <div class="orders">
+    <ng-template ngFor let-order [ngForOf]="foodOrders" let-i="index">
+      <div class="order">
+        <div
+          [ngClass]="{
+            'confirmado-color': order.foodOrderStatus == orderStatus[orderStatus.CONFIRMED],
+            'preparando-color': order.foodOrderStatus == orderStatus[orderStatus.PREPARING],
+            'aguardando-color': order.foodOrderStatus == orderStatus[orderStatus.WAITING],
+            'pronto-color': order.foodOrderStatus == orderStatus[orderStatus.COMPLETE],
+            'cancelado-color': order.foodOrderStatus == orderStatus[orderStatus.CANCELED],
+          }"
+          class="orderHeader"
+        >
+          <span class="time ms-2">{{
+            order.createdAt | date : "yyyy/MM/dd - H:mm"
+          }}</span>
+          <span class="id me-2"> Pedido #{{ order.id }}</span>
+        </div>
+        <div class="orderBody">
+          <div class="item py-1">
+            <table class="table table-hover table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">Qt.</th>
+                  <th scope="col">Pedido</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let foodItem of order.orders; index as i">
+                  <td>{{ foodItem.quantity }}</td>
+                  <td>
+                    {{ foodItem.name }}
+                    <ul *ngIf="foodItem.recipe != undefined" class="recipe">
+                      <li>
+                        {{ foodItem.recipe }}
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div
+            *ngIf="order.observations != undefined"
+            class="observation mx-2 mb-3"
+          >
+            <div class="title">Observação do cliente:</div>
+            <div class="body">
+              {{ order.observations }}
+            </div>
+          </div>
+          <div
+            *ngIf="
+              order.ifoodOrderId != undefined &&
+              order.foodOrderStatus == orderStatus[orderStatus.WAITING]
+            "
+            class="observation mx-2 mb-3"
+          >
+            <div class="title">Delivery:</div>
+            <div class="body">
+              You have to confirm this order in
+              <strong
+                ><app-count-down
+                  [seconds]="getRemainingTimeToConfirmOrder(order.createdAt)"
+                ></app-count-down
+              ></strong>
+            </div>
+          </div>
+        </div>
+        <div class="orderBtn">
+          <app-order-btn
+            [orderStatus]="
+              getOrderStatusFromStringLiteral(order.foodOrderStatus)
+            "
+            (orderStatusChangeEvent)="onChangeOrderStatus(order)"
+          ></app-order-btn>
+          <app-order-btn
+            [orderStatus]="
+              getOrderStatusFromStringLiteral(order.foodOrderStatus)
+            "
+            (orderStatusChangeEvent)="onChangeOrderStatus(order, $event)"
+            [showCancelBtn]="true"
+          ></app-order-btn>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+  <div class="flex-auto mt-1 mb-2">
+    <p-paginator
+      (onPageChange)="onPageChange($event)"
+      [rows]="10"
+      [totalRecords]="ordersPagination.totalRecords"
+      [rowsPerPageOptions]="[10]"
+    ></p-paginator>
+  </div>
+</div>
